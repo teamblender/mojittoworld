@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.js": "/static/js/main.95f05a7b.js",
+    "static/media/GmarketSansMedium.ttf": "/static/media/GmarketSansMedium.d4bac6b182bed73c9375.ttf",
+    "static/media/benefit1_2.png": "/static/media/benefit1_2.7e9d3c6464e5a8aee884.png",
+    "static/media/mojitto.png": "/static/media/mojitto.6bcd6c2044e70c8f3222.png",
+    "static/media/link2.png": "/static/media/link2.c3f4850907d64726c3ad.png",
+    "static/media/mojitto.gif": "/static/media/mojitto.b111dbb77751415726a2.gif",
+    "static/media/link3.png": "/static/media/link3.38941613d6c476512bea.png",
+    "static/media/bg2.png": "/static/media/bg2.392d4dda1dd3042ebc7f.png",
+    "static/media/link4.png": "/static/media/link4.62f18894569ef4f395e0.png",
+    "static/media/link1.png": "/static/media/link1.42e1b378ef4ff8c9c744.png",
+    "static/media/link5.png": "/static/media/link5.ac4bfbeb22b33f9d6a28.png",
+    "static/media/exit.png": "/static/media/exit.bfd8bd1f2dbbe08312a1.png",
+    "index.html": "/index.html",
+    "main.95f05a7b.js.map": "/static/js/main.95f05a7b.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.95f05a7b.js"
+  ]
+}
