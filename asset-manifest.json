@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/static/js/main.09f4121b.js",
+    "main.js": "/static/js/main.7f25ac22.js",
     "static/media/GmarketSansMedium.ttf": "/static/media/GmarketSansMedium.d4bac6b182bed73c9375.ttf",
     "static/media/benefit1_2.png": "/static/media/benefit1_2.7e9d3c6464e5a8aee884.png",
     "static/media/link6.png": "/static/media/link6.33d0b6812f3beee0951a.png",
@@ -14,9 +14,9 @@
     "static/media/link5.png": "/static/media/link5.ac4bfbeb22b33f9d6a28.png",
     "static/media/exit.png": "/static/media/exit.bfd8bd1f2dbbe08312a1.png",
     "index.html": "/index.html",
-    "main.09f4121b.js.map": "/static/js/main.09f4121b.js.map"
+    "main.7f25ac22.js.map": "/static/js/main.7f25ac22.js.map"
   },
   "entrypoints": [
-    "static/js/main.09f4121b.js"
+    "static/js/main.7f25ac22.js"
   ]
 }
