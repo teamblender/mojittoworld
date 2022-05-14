@@ -1,10 +1,13 @@
 {
   "files": {
-    "main.js": "/static/js/main.c9d9564d.js",
+    "main.js": "/static/js/main.fae2ef8a.js",
     "static/media/GmarketSansMedium.ttf": "/static/media/GmarketSansMedium.d4bac6b182bed73c9375.ttf",
-    "static/media/benefit1_2.png": "/static/media/benefit1_2.7e9d3c6464e5a8aee884.png",
+    "static/media/benefit4.png": "/static/media/benefit4.8a4c93a1d4eaf95cfb7c.png",
+    "static/media/benefit1a.png": "/static/media/benefit1a.7e9d3c6464e5a8aee884.png",
     "static/media/link6.png": "/static/media/link6.33d0b6812f3beee0951a.png",
+    "static/media/benefit3.png": "/static/media/benefit3.046acae18d39eee74315.png",
     "static/media/mojitto.png": "/static/media/mojitto.6bcd6c2044e70c8f3222.png",
+    "static/media/benefit2.png": "/static/media/benefit2.946c083a4cfbcb6c0fae.png",
     "static/media/link2.png": "/static/media/link2.c3f4850907d64726c3ad.png",
     "static/media/mojitto.gif": "/static/media/mojitto.b111dbb77751415726a2.gif",
     "static/media/link3.png": "/static/media/link3.38941613d6c476512bea.png",
@@ -14,9 +17,9 @@
     "static/media/link5.png": "/static/media/link5.ac4bfbeb22b33f9d6a28.png",
     "static/media/exit.png": "/static/media/exit.bfd8bd1f2dbbe08312a1.png",
     "index.html": "/index.html",
-    "main.c9d9564d.js.map": "/static/js/main.c9d9564d.js.map"
+    "main.fae2ef8a.js.map": "/static/js/main.fae2ef8a.js.map"
   },
   "entrypoints": [
-    "static/js/main.c9d9564d.js"
+    "static/js/main.fae2ef8a.js"
   ]
 }
