@@ -1,7 +1,8 @@
 {
   "files": {
-    "main.js": "/static/js/main.d3412377.js",
+    "main.js": "/static/js/main.f61a3c44.js",
     "static/media/GmarketSansMedium.ttf": "/static/media/GmarketSansMedium.d4bac6b182bed73c9375.ttf",
+    "static/media/benefit1b.png": "/static/media/benefit1b.a3c78d7ba5f70e4d4a5d.png",
     "static/media/benefit4.png": "/static/media/benefit4.8a4c93a1d4eaf95cfb7c.png",
     "static/media/benefit1a.png": "/static/media/benefit1a.7e9d3c6464e5a8aee884.png",
     "static/media/link6.png": "/static/media/link6.33d0b6812f3beee0951a.png",
@@ -18,9 +19,9 @@
     "static/media/guide.png": "/static/media/guide.6168bb1010c881f9b8e4.png",
     "static/media/exit.png": "/static/media/exit.bfd8bd1f2dbbe08312a1.png",
     "index.html": "/index.html",
-    "main.d3412377.js.map": "/static/js/main.d3412377.js.map"
+    "main.f61a3c44.js.map": "/static/js/main.f61a3c44.js.map"
   },
   "entrypoints": [
-    "static/js/main.d3412377.js"
+    "static/js/main.f61a3c44.js"
   ]
 }
