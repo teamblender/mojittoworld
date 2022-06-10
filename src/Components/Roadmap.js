@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
-import { Title, Border, Desc, Space } from "./Utility";
+import { Title, Border, Desc, Space, HighLight } from "./Utility";
 import RoadmapArray from "../Assets/Data/RoadmapArray";
 import { useNavigate } from "react-router-dom";
+import { isMobile } from "react-device-detect";
+import { useInView } from "react-intersection-observer";
 
 const Box = styled.div`
   margin-top: 160px;
@@ -66,10 +68,13 @@ const Dot = styled.div`
   transition: 0.5s ease-in-out;
   width: 16px;
   height: 16px;
-  background-color: rgba(85, 85, 85, 1);
+  background-color: ${(props) =>
+    props.state === 0 ? "rgba(255, 255, 255, 1)" : "rgba(85, 85, 85, 1)"};
   border-radius: 20px;
   top: 0px;
   right: calc(50% - 8px);
+  animation: ${(props) =>
+    props.state === 1 ? "blink-effect 2s infinite" : "none"};
 `;
 
 const Contents = styled.div`
@@ -84,13 +89,16 @@ const Contents = styled.div`
     props.direction === "r" ? "0px 0px 0px 20px" : "0px 20px 0px 0px"};
   overflow: hidden;
   &:hover ~ .dot {
-    background-color: rgba(255, 255, 255, 1);
+    background-color: ${(props) =>
+      props.isMobile ? "rgba(85, 85, 85, 1)" : "rgba(255, 255, 255, 1)"};
   }
   &:hover > .contents {
-    color: rgba(255, 255, 255, 1);
+    color: ${(props) =>
+      props.isMobile ? "rgba(85, 85, 85, 1)" : "rgba(255, 255, 255, 1)"};
   }
   &:hover > .thumbnail {
-    outline-color: rgba(255, 255, 255, 1);
+    border-color: ${(props) =>
+      props.isMobile ? "rgba(42, 41, 41, 1)" : "rgba(255, 255, 255, 1)"};
   }
   @media screen and (max-width: 800px) {
     padding: ${(props) =>
@@ -100,15 +108,16 @@ const Contents = styled.div`
 
 const Milestone = styled.div`
   transition: 0.5s ease-in-out;
-  color: rgba(85, 85, 85, 1);
-  font-size: 12px;
+  color: ${(props) =>
+    props.state < 2 ? "rgba(255, 255, 255, 1);" : "rgba(85, 85, 85, 1);"};
+  /* font-size: 12px; */
   margin: ${(props) =>
     props.direction === "r" ? "0px 0px 12px 10px" : "0px 10px 12px 0px"};
 `;
 
 const Thumbnail = styled.div`
   width: 95%;
-  padding-top: 56.25%;
+  padding-top: 53.4375%;
   background: ${(props) =>
     `rgba(0,0,0,1) url(${props.img}) no-repeat center center`};
   background-size: cover;
@@ -117,8 +126,9 @@ const Thumbnail = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
-  outline: 2px solid;
-  outline-color: rgba(42, 41, 41, 1);
+  border: 2px solid;
+  border-color: ${(props) =>
+    props.state < 2 ? "rgba(255, 255, 255, 1);" : "rgba(42, 41, 41, 1)"};
   transition: 0.5s ease-in-out;
 `;
 
@@ -126,23 +136,34 @@ const Benefit = styled.div`
   margin: ${(props) =>
     props.direction === "r" ? "0px 0px 0px 10px" : "0px 10px 0px 0px"};
   transition: 0.5s ease-in-out;
-  color: rgba(85, 85, 85, 1);
+  color: ${(props) =>
+    props.state < 2 ? "rgba(255, 255, 255, 1);" : "rgba(85, 85, 85, 1);"};
   font-weight: 500;
   line-height: 1.5;
 `;
 
-const Roadmap = () => {
+const Roadmap = ({ inViewFunc }) => {
+  const [ref, inView] = useInView({
+    threshold: 0.15,
+  });
+  useEffect(() => {
+    inViewFunc(1, inView);
+  }, [inView]);
   const navigate = useNavigate();
   const goToDetail = (index) => {
     navigate("/benefit", { state: { index: index } });
   };
   return (
-    <Box className="dD">
+    <Box className="dD" id="menu1" ref={ref}>
       <Title>칵테일 코스터 구매 혜택</Title>
       <Border></Border>
       <Desc>
         모지또 칵테일 코스터 NFT를<p></p>구매해주신 분들께 감사의 의미로
-        <p></p>아래와 같은 혜택을 드릴 예정이에요!
+        <p></p>
+        <HighLight>
+          Welcome Gift 증정은 물론
+          <p></p>다양한 혜택을 드릴 예정이에요!
+        </HighLight>
         <Space></Space>각 혜택을 눌러 자세히 볼 수 있어요.
       </Desc>
       <RBox>
@@ -152,16 +173,29 @@ const Roadmap = () => {
             <Contents
               direction={item.direction}
               onClick={() => goToDetail(index)}
+              isMobile={isMobile}
             >
-              <Milestone className="contents" direction={item.direction}>
+              <Milestone
+                className="contents"
+                direction={item.direction}
+                state={item.state}
+              >
                 {item.milestone}
               </Milestone>
-              <Thumbnail className="thumbnail" img={item.img}></Thumbnail>
-              <Benefit className="contents" direction={item.direction}>
+              <Thumbnail
+                className="thumbnail"
+                img={item.img[0]}
+                state={item.state}
+              ></Thumbnail>
+              <Benefit
+                className="contents"
+                direction={item.direction}
+                state={item.state}
+              >
                 {item.benefit}
               </Benefit>
             </Contents>
-            <Dot className="dot"></Dot>
+            <Dot className="dot" state={item.state}></Dot>
           </DotSet>
         ))}
       </RBox>

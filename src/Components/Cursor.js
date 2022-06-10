@@ -5,8 +5,8 @@ import EmojiArray from "../Assets/Data/EmojiArray";
 
 const Box = styled.div`
   position: fixed;
-  width: 20px;
-  height: 20px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   /* background-color: white; */
   display: flex;
@@ -14,14 +14,14 @@ const Box = styled.div`
   pointer-events: none;
   align-items: center;
   z-index: 2000;
-  outline: 2px solid;
-  outline-color: rgba(30, 30, 30, 1);
+  border: 2px solid;
+  border-color: rgba(30, 30, 30, 1);
   overflow: hidden;
 `;
 
 const Emoji = styled.img`
-  width: 22px;
-  height: 22px;
+  width: 110%;
+  height: 110%;
 `;
 
 const useCursor = () => {

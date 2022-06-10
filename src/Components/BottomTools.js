@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import exit from "../Assets/Images/Icons/exit.png";
 import left from "../Assets/Images/Icons/left.png";
 import right from "../Assets/Images/Icons/right.png";
+import { isMobile } from "react-device-detect";
 
 const Box = styled.div`
   width: 100%;
@@ -45,17 +46,14 @@ const IconBox = styled.div`
   justify-content: center;
   align-items: center;
   &:hover > img {
-    opacity: 1;
+    opacity: ${(props) => (props.isMobile ? 0.3 : 1)};
   }
-  outline: 2px solid;
-  outline-color: rgba(42, 41, 41, 1);
+  border: 2px solid;
+  border-color: rgba(42, 41, 41, 1);
   transition: 0.5s ease-in-out;
   &:hover {
-    outline-color: rgba(255, 255, 255, 1);
-    color: rgba(255, 255, 255, 1);
-  }
-  :nth-child(2) {
-    margin: 0px 30px;
+    border-color: ${(props) =>
+      props.isMobile ? "rgba(42, 41, 41, 1)" : "rgba(255, 255, 255, 1)"};
   }
 `;
 
@@ -66,27 +64,35 @@ const Icon = styled.img`
   opacity: 0.3;
 `;
 
-const BottomTools = ({ index, length, changePage }) => {
+const BottomTools = ({ index, length, changePage, mint }) => {
   const navigate = useNavigate();
   const goHome = () => {
-    navigate("/", { replace: true });
+    navigate(-1);
   };
-  return (
+  return mint ? (
+    <Box className="dD">
+      <IconBox onClick={goHome} visible={true} isMobile={isMobile}>
+        <Icon src={exit}></Icon>
+      </IconBox>
+    </Box>
+  ) : (
     <Box className="dD">
       <IconBox
         onClick={() => changePage("L", index)}
         visible={index === 0 ? false : true}
         left={true}
+        isMobile={isMobile}
       >
         <Icon src={left}></Icon>
       </IconBox>
-      <IconBox onClick={goHome} visible={true}>
+      <IconBox onClick={goHome} visible={true} isMobile={isMobile}>
         <Icon src={exit}></Icon>
       </IconBox>
       <IconBox
         onClick={() => changePage("R", index)}
         visible={index === length - 1 ? false : true}
         right={true}
+        isMobile={isMobile}
       >
         <Icon src={right}></Icon>
       </IconBox>

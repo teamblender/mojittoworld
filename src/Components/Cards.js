@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { isMobile } from "react-device-detect";
 
 const Box = styled.div`
   width: 100%;
@@ -20,14 +21,16 @@ const Card = styled.a`
   background-color: rgba(42, 41, 41, 1);
   border-radius: 20px;
   overflow: hidden;
+  isolation: isolate;
   :nth-child(odd) {
     margin-right: 20px;
   }
-  outline: 2px solid;
-  outline-color: rgba(42, 41, 41, 1);
+  border: 2px solid;
+  border-color: rgba(42, 41, 41, 1);
   transition: 0.5s ease-in-out;
   &:hover {
-    outline-color: rgba(255, 255, 255, 1);
+    border-color: ${(props) =>
+      props.isMobile ? "rgba(42, 41, 41, 1)" : "rgba(255, 255, 255, 1)"};
   }
   @media screen and (max-width: 840px) {
     width: calc(100% - 20px);
@@ -54,6 +57,9 @@ const CardB = styled.div`
   padding: 25px 25px 30px;
   display: flex;
   flex-direction: column;
+  @media screen and (max-width: 840px) {
+    padding: 20px 15px 20px;
+  }
 `;
 
 const Title = styled.div`
@@ -79,7 +85,7 @@ const Cards = ({ LinkArray }) => {
   return (
     <Box>
       {LinkArray.map((link, index) => (
-        <Card key={index} href={link.url} target="_blank">
+        <Card key={index} href={link.url} target="_blank" isMobile={isMobile}>
           <CardT img={link.img}></CardT>
           <CardB>
             <Title>{link.title}</Title>

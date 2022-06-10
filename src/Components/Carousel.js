@@ -10,6 +10,7 @@ const Box = styled.div`
   width: 100%;
   border-radius: 20px;
   overflow: hidden;
+  isolation: isolate;
   @media screen and (max-width: 800px) {
     border-radius: 0px;
   }
@@ -92,8 +93,6 @@ const Carousel = () => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
-          infinite: true,
-          dots: true,
         },
       },
       {
@@ -101,7 +100,6 @@ const Carousel = () => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-          initialSlide: 1,
         },
       },
       {

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import mojitto from "../Assets/Images/Icons/mojitto.gif";
+import { useInView } from "react-intersection-observer";
 
 const Box = styled.div`
   width: 100%;
@@ -64,9 +65,15 @@ const Mojitto = styled.img`
   height: 128px;
 `;
 
-const MojittoArea = () => {
+const MojittoArea = ({ inViewFunc }) => {
+  const [ref, inView] = useInView({
+    threshold: 0.3,
+  });
+  useEffect(() => {
+    inViewFunc(0, inView);
+  }, [inView]);
   return (
-    <Box className="dD">
+    <Box className="dD" id="menu0" ref={ref}>
       <TBox>
         <FlipBox>
           <FlipList className="flip">

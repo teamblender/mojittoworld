@@ -5,13 +5,15 @@ const Box = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-
   text-align: center;
   line-height: 1.5;
   font-size: 12px;
   color: rgba(185, 185, 185, 0.5);
   margin-top: 70px;
   margin-bottom: 30px;
+  @media screen and (max-width: 1450px) {
+    margin-bottom: 100px;
+  }
 `;
 
 const Blender = styled.a`

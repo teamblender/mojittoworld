@@ -7,7 +7,7 @@ const Box = styled.div`
   align-items: center;
   width: 100%;
   /* max-width: 300px; */
-  padding-top: 56.25%;
+  padding-top: ${(props) => (props.banner ? "28.57%" : "56.25%")};
   background: ${(props) =>
     `rgba(0,0,0,1) url(${props.img}) no-repeat center center`};
   background-size: cover;
@@ -17,8 +17,8 @@ const Box = styled.div`
   }
 `;
 
-const Picture = ({ img }) => {
-  return <Box img={img}></Box>;
+const Picture = ({ img, banner }) => {
+  return <Box img={img} banner={banner}></Box>;
 };
 
 export default Picture;

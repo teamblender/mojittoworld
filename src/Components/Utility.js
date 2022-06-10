@@ -97,4 +97,59 @@ const Margin = () => {
   return <MarginCP></MarginCP>;
 };
 
-export { Title, Border, Space, Desc, HighLight, STitle, Margin, SText };
+const OutlinkCP = styled.a`
+  text-decoration: underline;
+  transition: 0.5s ease-in-out;
+  &:hover {
+    color: rgba(255, 255, 255, 1);
+    font-weight: 500;
+  }
+`;
+
+const Outlink = ({ children, url }) => {
+  return (
+    <OutlinkCP href={url} target="_blank">
+      {children}
+    </OutlinkCP>
+  );
+};
+
+const ItemCP = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  border-radius: 20px;
+  background-color: rgba(42, 41, 41, 1);
+`;
+
+const ItemTitle = styled.div`
+  color: rgba(255, 255, 255, 1);
+  margin-bottom: 3px;
+`;
+
+const ItemDesc = styled.div`
+  font-size: 12px;
+`;
+
+const Item = ({ title, desc }) => {
+  return (
+    <ItemCP>
+      <ItemTitle>{title}</ItemTitle>
+      <ItemDesc>{desc}</ItemDesc>
+    </ItemCP>
+  );
+};
+
+export {
+  Title,
+  Border,
+  Space,
+  Desc,
+  HighLight,
+  STitle,
+  Margin,
+  SText,
+  Outlink,
+  Item,
+};

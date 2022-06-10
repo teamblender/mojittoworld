@@ -120,7 +120,14 @@ body {
   margin-right: 10px;
   }
 
+  .benefitCarousel > .slick-list > .slick-track > .slick-slide > div{
+  margin-right: 0px;
+  margin-bottom: 0px;
+  }
+
+
 .flip { animation: flip 12s cubic-bezier(0.23, 1, 0.32, 1.2) infinite; }
+
 
 @keyframes flip {
     0% { margin-top: -360px;}
@@ -135,6 +142,11 @@ body {
     100% { margin-top: -270px;}
 }
 
+@keyframes blink-effect {
+  0% { background-color: rgba(85, 85, 85, 1); }
+  50% { background-color: rgba(255, 255, 255, 1); }
+  100% { background-color: rgba(85, 85, 85, 1); }
+  }
 
 `;
 

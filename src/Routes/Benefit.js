@@ -7,11 +7,13 @@ import RoadmapArray from "../Assets/Data/RoadmapArray";
 import { useLocation } from "react-router-dom";
 import Picture from "../Components/Picture";
 import BottomTools from "../Components/BottomTools";
+import BenefitCarousel from "../Components/BenefitCarousel";
 
 const Benefit = () => {
   const params = useLocation();
   const [index, setIndex] = useState(0);
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
     setIndex(params.state.index);
   }, []);
   const changePage = (LR, index) => {
@@ -25,7 +27,11 @@ const Benefit = () => {
   return (
     <Container benefit={true}>
       <Header></Header>
-      <Picture img={RoadmapArray[index].img}></Picture>
+      {RoadmapArray[index].img.length === 1 ? (
+        <Picture img={RoadmapArray[index].img[0]}></Picture>
+      ) : (
+        <BenefitCarousel img={RoadmapArray[index].img}></BenefitCarousel>
+      )}
       <STitle>{RoadmapArray[index].milestone}</STitle>
       <Title small={true}>{RoadmapArray[index].benefit}</Title>
       <Border></Border>

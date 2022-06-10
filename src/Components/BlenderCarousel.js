@@ -8,6 +8,7 @@ const Box = styled.div`
   width: 100%;
   border-radius: 20px;
   overflow: hidden;
+  isolation: isolate;
   @media screen and (max-width: 800px) {
     border-radius: 0px;
   }
@@ -35,14 +36,16 @@ const Item = styled.div`
 `;
 
 const ProfileBox = styled.div`
-  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgba(42, 41, 41, 1);
+  margin-top: -20px;
 `;
 
-const Profile = styled.img``;
+const Profile = styled.img`
+  width: 100px;
+`;
 
 const Name = styled.div`
   font-size: 16px;
@@ -82,8 +85,6 @@ const BlenderCarousel = () => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
-          infinite: true,
-          dots: true,
         },
       },
       {
@@ -91,7 +92,6 @@ const BlenderCarousel = () => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-          initialSlide: 1,
         },
       },
       {

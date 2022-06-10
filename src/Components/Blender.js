@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
-import { Title, Border, Desc } from "./Utility";
+import { Title, Border, Desc, Outlink } from "./Utility";
 import BlenderCarousel from "./BlenderCarousel";
+import { useInView } from "react-intersection-observer";
 
 const Box = styled.div`
-  margin-top: 200px;
+  margin-top: 170px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -12,25 +13,22 @@ const Box = styled.div`
   justify-content: center;
 `;
 
-const Homepage = styled.a`
-  text-decoration: underline;
-  transition: 0.5s ease-in-out;
-  &:hover {
-    color: rgba(255, 255, 255, 1);
-    font-weight: 500;
-  }
-`;
-
-const Blender = () => {
+const Blender = ({ inViewFunc }) => {
+  const [ref, inView] = useInView({
+    threshold: 0.97,
+  });
+  useEffect(() => {
+    inViewFunc(4, inView);
+  }, [inView]);
   return (
-    <Box>
+    <Box id="menu4" ref={ref}>
       <Title>Team Blender</Title>
       <Border></Border>
       <Desc>
         모지또와 함께하는 우리는 팀 블렌더입니다!<p></p>
-        <Homepage href="https://teamblender.co/" target="_blank">
+        <Outlink url="https://teamblender.co/">
           Team Blender 홈페이지 구경하기
-        </Homepage>
+        </Outlink>
       </Desc>
       <BlenderCarousel></BlenderCarousel>
     </Box>

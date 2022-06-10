@@ -34,7 +34,7 @@ const MojittoArray = [
   {
     cid: "fg",
     category: "다운로드 수",
-    contents: "101,900회",
+    contents: "144,983회",
     bgColor: "#DAC190",
   },
   {
@@ -46,13 +46,13 @@ const MojittoArray = [
   {
     cid: "fg",
     category: "쉐-킷 횟수",
-    contents: "675,957회",
+    contents: "933,957회",
     bgColor: "#9DC480",
   },
   {
     cid: "fg",
     category: "눌린 감정 수",
-    contents: "675,957회",
+    contents: "4,356,503회",
     bgColor: "#DFD9C8",
   },
 ];

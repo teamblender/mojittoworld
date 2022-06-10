@@ -3,6 +3,7 @@ import link2 from "../Images/Contents/link2.png";
 import link3 from "../Images/Contents/link3.png";
 import link4 from "../Images/Contents/link4.png";
 import link5 from "../Images/Contents/link5.png";
+import link6 from "../Images/Contents/link6.png";
 
 const LinkArray = [
   {
@@ -42,6 +43,7 @@ const LinkArray = [
   },
   {
     url: "https://brunch.co.kr/@vicotorlee/180",
+    img: link6,
     title: "#6. 팀을 위한 매거진 만들기",
     desc: "Magazine M 제작기",
     date: "2022년 3월 13일",
