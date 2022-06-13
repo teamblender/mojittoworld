@@ -32,6 +32,7 @@ const Mint = () => {
       <Desc>
         모지또 칵테일 코스터 NFT는<p></p>클레이튼으로 만들어졌어요.
         <Space></Space>
+        구글 크롬 브라우저에서<p></p>
         카이카스 지갑을 연결하여<p></p>구매하실 수 있답니다!
         <Space></Space>
         <Outlink url="https://teamblender.co/">

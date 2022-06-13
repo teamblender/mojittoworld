@@ -1,12 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { check_status, publicMint, connect } from "../Assets/Mint/mintScript";
+import { isMobile } from "react-device-detect";
 
 const Box = styled.div`
   max-width: 420px;
   margin-top: 25px;
   margin-bottom: 25px;
-  width: 100%;
+  width: calc(100% - 20px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -84,39 +85,69 @@ const Button = styled.div`
   }
 `;
 
+const Alert = styled.div`
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  line-height: 2;
+`;
+
 const Minting = () => {
+  const [accounts, setAccounts] = useState();
+  const check = async () => {
+    const getAccounts = await window.klaytn.enable();
+    setAccounts(getAccounts);
+  };
   useEffect(() => {
+    check();
     check_status();
   }, []);
   return (
     <Box>
-      <SBox>
-        <Title>NFT 정보</Title>
-        <ItemBox>
-          <ItemTitle>민팅 가격</ItemTitle>
-          <ItemValue id="mintPrice">1Klay</ItemValue>
-        </ItemBox>
-        <ItemBox>
-          <ItemTitle>민팅 현황</ItemTitle>
-          <ItemValue id="mintCnt">1Klay</ItemValue>
-        </ItemBox>
-      </SBox>
-      <Border></Border>
-      <SBox>
-        <Title>지갑 정보</Title>
-        <ItemBox>
-          <ItemTitle>지갑 주소</ItemTitle>
-          <ItemValue id="myWallet">지갑 연결 전</ItemValue>
-        </ItemBox>
-        <ItemBox>
-          <ItemTitle>지갑 잔액</ItemTitle>
-          <ItemValue id="myKlay">지갑 연결 전</ItemValue>
-        </ItemBox>
-      </SBox>
-      <ItemBox>
-        <Button onClick={connect}>지갑 연결</Button>
-        <Button onClick={publicMint}>구매(민팅)</Button>
-      </ItemBox>
+      {isMobile ? (
+        <Alert>
+          앗! 모바일에선 구매가 불가능해요!<p></p>PC 크롬 브라우저에서
+          접속해주실래요?
+        </Alert>
+      ) : accounts ? (
+        <>
+          <SBox>
+            <Title>NFT 정보</Title>
+            <ItemBox>
+              <ItemTitle>민팅 가격</ItemTitle>
+              <ItemValue id="mintPrice">1Klay</ItemValue>
+            </ItemBox>
+            <ItemBox>
+              <ItemTitle>민팅 현황</ItemTitle>
+              <ItemValue id="mintCnt">1Klay</ItemValue>
+            </ItemBox>
+          </SBox>
+          <Border></Border>
+          <SBox>
+            <Title>지갑 정보</Title>
+            <ItemBox>
+              <ItemTitle>지갑 주소</ItemTitle>
+              <ItemValue id="myWallet">지갑 연결 전</ItemValue>
+            </ItemBox>
+            <ItemBox>
+              <ItemTitle>지갑 잔액</ItemTitle>
+              <ItemValue id="myKlay">지갑 연결 전</ItemValue>
+            </ItemBox>
+          </SBox>
+          <ItemBox>
+            <Button onClick={connect}>지갑 연결</Button>
+            <Button onClick={publicMint}>구매(민팅)</Button>
+          </ItemBox>
+        </>
+      ) : (
+        <Alert>
+          아직 카이카스 지갑이 없으신 것 같아요!<p></p>아래에 있는 코스터 구매
+          방법을<p></p>보시고 진행해주시겠어요?
+        </Alert>
+      )}
     </Box>
   );
 };
