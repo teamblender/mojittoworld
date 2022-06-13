@@ -87,7 +87,7 @@ const Button = styled.div`
 
 const Alert = styled.div`
   width: 100%;
-  height: 100px;
+  min-height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -144,8 +144,9 @@ const Minting = () => {
         </>
       ) : (
         <Alert>
-          아직 카이카스 지갑이 없으신 것 같아요!<p></p>아래에 있는 코스터 구매
-          방법을<p></p>보시고 진행해주시겠어요?
+          아직 카이카스 지갑이 활성화되지 않았어요!<p></p>
+          지갑을 먼저 활성화해주시겠어요?<p></p>-<p></p>만약 NFT 구매가
+          처음이시라면<p></p>아래 구매 가이드를 봐주시겠어요?
         </Alert>
       )}
     </Box>
