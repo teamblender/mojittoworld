@@ -70,7 +70,7 @@ const Tutorial = ({ inViewFunc, main }) => {
     }
   }, [inView]);
   return (
-    <Box id="menu2" ref={main ? ref : null} main={main}>
+    <Box id="menu2" ref={main ? ref : null} main={main} className="dD">
       <Title>칵테일 코스터 구매 방법</Title>
       <Border></Border>
       <Desc>

@@ -29,7 +29,7 @@ const Header = () => {
   };
 
   return (
-    <Box>
+    <Box className="dD">
       <LBox>
         <Logo src={logo} onClick={goHome}></Logo>
       </LBox>

@@ -17,6 +17,7 @@ import {
   Outlink,
 } from "../Components/Utility";
 import Minting from "../Components/Minting";
+import { Helmet } from "react-helmet";
 
 const Mint = () => {
   useEffect(() => {
@@ -24,6 +25,9 @@ const Mint = () => {
   }, []);
   return (
     <Container>
+      <Helmet>
+        <title>모지또 해외 가자!</title>
+      </Helmet>
       <Header></Header>
       <Picture banner={true} img={mint}></Picture>
       <STitle>NFT 민팅</STitle>

@@ -46,7 +46,7 @@ const Menu = () => {
     "모지또 연락처",
   ];
   return (
-    <Box>
+    <Box className="dD">
       <Title>메뉴</Title>
       <Border></Border>
       {MenuArray.map((menu, index) => (

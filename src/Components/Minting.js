@@ -96,10 +96,10 @@ const Alert = styled.div`
 `;
 
 const Minting = () => {
-  const [accounts, setAccounts] = useState();
+  const [kaikas, setKaikas] = useState();
   const check = async () => {
-    const getAccounts = await window.klaytn.enable();
-    setAccounts(getAccounts);
+    const checkKaikas = await window.klaytn;
+    setKaikas(typeof checkKaikas !== "undefined" ? true : false);
   };
   useEffect(() => {
     check();
@@ -112,7 +112,7 @@ const Minting = () => {
           앗! 모바일에선 구매가 불가능해요!<p></p>PC 크롬 브라우저에서
           접속해주실래요?
         </Alert>
-      ) : accounts ? (
+      ) : kaikas ? (
         <>
           <SBox>
             <Title>NFT 정보</Title>
